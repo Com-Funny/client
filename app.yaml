@@ -4,3 +4,4 @@ env: standard
 handlers:
   - url: /.*
     script: auto
+service: default
