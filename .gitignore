@@ -43,4 +43,5 @@
 /project/.env
 /project/.env.*
 
-
+/build/
+node_modules/

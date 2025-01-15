@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  swcMinify: true,
+  reactStrictMode: false,
+  compiler: {
+    styledComponents: true,
+  },
+  output: "export",
+  distDir: "../build",
 };
 
-export default nextConfig;
+module.exports = nextConfig;
