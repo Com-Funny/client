@@ -1,2 +1,6 @@
-runtime: nodejs22 # or another supported version
-service: travel-client
+runtime: nodejs22
+entrypoint: node app.js
+env: standard
+handlers:
+  - url: /.*
+    script: auto
