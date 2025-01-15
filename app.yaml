@@ -1,0 +1,2 @@
+runtime: nodejs22 # or another supported version
+service: travel-client
