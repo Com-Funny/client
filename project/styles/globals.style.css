@@ -5,12 +5,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --border: #dedede;
+  --primary: #5271ff;
+  --logo: url("/images/logo/primary-background.png");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --border: #6c6c6c;
+    --primary: #8dd5ff;
+    --logo: url("/images/logo/dark-background.png");
   }
 }
 
