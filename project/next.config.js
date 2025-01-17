@@ -13,12 +13,18 @@ const nextConfig = (phase) => {
       reactStrictMode: false,
       output: "export",
       distDir: "../build",
+      compiler: {
+        styledComponents: true,
+      },
     };
   } else {
     return {
       env: envConfig,
       reactStrictMode: false,
       swcMinify: true,
+      compiler: {
+        styledComponents: true,
+      },
     };
   }
 };

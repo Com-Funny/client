@@ -1,4 +1,5 @@
 import { configure } from "mobx";
+import BannerViewModel from "src/viewModels/banner/banner.viewModel";
 import DefaultViewModel, {
   IDefaultProps,
 } from "src/viewModels/default.viewModel";
@@ -14,6 +15,7 @@ export class RootStore {
   public defaultViewModel: DefaultViewModel;
   public indicatorViewModel: IndicatorViewModel;
   public userViewModel: UserViewModel;
+  public bannerViewModel: BannerViewModel;
 
   constructor(initialData: IDefaultProps) {
     this.indicatorViewModel = new IndicatorViewModel();
@@ -23,6 +25,7 @@ export class RootStore {
 
     this.defaultViewModel = new DefaultViewModel(initData);
     this.userViewModel = new UserViewModel(initData);
+    this.bannerViewModel = new BannerViewModel(initData);
   }
 }
 
