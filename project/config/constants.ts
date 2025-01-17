@@ -5,3 +5,10 @@ export const MenuType = {
   4: { name: "이벤트상품", url: "/event" },
 } as const;
 export type MenuType = (typeof MenuType)[keyof typeof MenuType];
+
+export const StatusType = {
+  PENDING: 0,
+  SUCCESS: 1,
+  FAILURE: 2,
+} as const;
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];

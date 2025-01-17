@@ -1,19 +1,9 @@
+import UserProfileBox from "components/user/userProfileBox";
 import { MenuType } from "config/constants";
-import { inject, observer } from "mobx-react";
 import Link from "next/link";
-import { useEffect } from "react";
-import UserViewModel from "src/viewModels/user/user.viewModel";
 import styled from "styled-components";
 
-interface IProps {
-  userViewModel?: UserViewModel;
-}
-
-function Header({ userViewModel }: IProps) {
-  useEffect(() => {
-    userViewModel.getMe();
-  }, []);
-
+export default function Header() {
   return (
     <HeaderContainer>
       <div>
@@ -34,16 +24,11 @@ function Header({ userViewModel }: IProps) {
             })}
           </ul>
         </MenuBox>
-        <UserBox>
-          <img src={userViewModel.me.profile} alt="user profile" />
-          <p>{userViewModel.me.name}</p>
-        </UserBox>
+        <UserProfileBox />
       </div>
     </HeaderContainer>
   );
 }
-
-export default inject("userViewModel")(observer(Header));
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -98,24 +83,5 @@ const MenuBox = styled.nav`
         color: var(--primary);
       }
     }
-  }
-`;
-
-const UserBox = styled.div`
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: end;
-
-  & > img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  & > p {
-    font-size: 16px;
-    font-weight: 600;
   }
 `;
