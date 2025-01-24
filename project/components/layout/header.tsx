@@ -35,10 +35,11 @@ const HeaderContainer = styled.header`
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--border);
+  width: 100%;
 
   & > div {
-    max-width: 1440px;
     width: 100%;
+    max-width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;

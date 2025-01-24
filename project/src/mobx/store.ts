@@ -4,6 +4,7 @@ import DefaultViewModel, {
   IDefaultProps,
 } from "src/viewModels/default.viewModel";
 import IndicatorViewModel from "src/viewModels/indicator/indicator.viewModel";
+import ProductViewModel from "src/viewModels/product/product.viewModel";
 import UserViewModel from "src/viewModels/user/user.viewModel";
 
 const isServer = typeof window === "undefined";
@@ -16,6 +17,7 @@ export class RootStore {
   public indicatorViewModel: IndicatorViewModel;
   public userViewModel: UserViewModel;
   public bannerViewModel: BannerViewModel;
+  public productViewModel: ProductViewModel;
 
   constructor(initialData: IDefaultProps) {
     this.indicatorViewModel = new IndicatorViewModel();
@@ -26,6 +28,7 @@ export class RootStore {
     this.defaultViewModel = new DefaultViewModel(initData);
     this.userViewModel = new UserViewModel(initData);
     this.bannerViewModel = new BannerViewModel(initData);
+    this.productViewModel = new ProductViewModel(initData);
   }
 }
 

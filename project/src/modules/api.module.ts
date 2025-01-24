@@ -116,9 +116,8 @@ export class ApiModule {
   };
 
   private handleError = (error: any): AxiosError => {
-    const { data } = error.response;
     this.indicatorViewModel.useIndicator(false);
-    const errorDto = plainToInstance(AxiosError, data);
+    const errorDto = plainToInstance(AxiosError, error);
 
     throw errorDto;
   };

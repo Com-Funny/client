@@ -12,3 +12,17 @@ export const StatusType = {
   FAILURE: 2,
 } as const;
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+
+export const PartsType = {
+  UNSET: 0,
+  CPU: 1,
+  MAINBOARD: 2,
+  VGA: 3,
+  RAM: 4,
+  STORAGE: 5,
+  CASE: 6,
+  POWER: 7,
+  CPU_COOLER: 8,
+  OTHER: 9,
+} as const;
+export type PartsType = (typeof PartsType)[keyof typeof PartsType];

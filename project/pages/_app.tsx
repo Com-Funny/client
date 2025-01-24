@@ -34,13 +34,13 @@ class MyApp extends App<any, any, any> {
     const { Component } = this.props;
 
     return (
-      <div className={pretendard.className}>
+      <main className={pretendard.className}>
         <Provider {...this.mobxStore}>
           <Header />
           <ApiLoadingIndicator />
           <Component router={this.router} />
         </Provider>
-      </div>
+      </main>
     );
   }
 }
