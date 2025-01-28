@@ -1,4 +1,5 @@
 import Header from "components/layout/header";
+import Footer from "components/layout/footer";
 import ApiLoadingIndicator from "components/loading/apiLoadingIndicator";
 import { Provider } from "mobx-react";
 import App from "next/app";
@@ -39,6 +40,7 @@ class MyApp extends App<any, any, any> {
           <Header />
           <ApiLoadingIndicator />
           <Component router={this.router} />
+          <Footer />
         </Provider>
       </main>
     );
