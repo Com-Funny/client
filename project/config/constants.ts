@@ -24,5 +24,31 @@ export const PartsType = {
   POWER: 7,
   CPU_COOLER: 8,
   OTHER: 9,
+  getPartsName: (value: number) => {
+    switch (value) {
+      case 0:
+        return "기본";
+      case 1:
+        return "CPU";
+      case 2:
+        return "메인보드";
+      case 3:
+        return "GPU";
+      case 4:
+        return "RAM";
+      case 5:
+        return "저장장치";
+      case 6:
+        return "CASE";
+      case 7:
+        return "POWER";
+      case 8:
+        return "CPU 쿨러";
+      case 9:
+        return "기타";
+      default:
+        return "기타";
+    }
+  },
 } as const;
 export type PartsType = (typeof PartsType)[keyof typeof PartsType];
