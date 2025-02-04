@@ -1,0 +1,129 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "category": "BUSINESS ZONE",
+      "description": "오래 사용할 수 있는 신뢰성",
+      "highlight": "12% 이상",
+      "categoryInKorean": "게이밍 PC",
+      "images": [
+        "/images/bannerExample/bannerExample1.svg",
+        "/images/bannerExample/bannerExample2.svg",
+        "/images/bannerExample/bannerExample3.svg"
+      ],
+      "products": [
+        {
+          "id": 1,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3122000,
+          "discountPrice": 2870000,
+          "discountRate": 8,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        },
+        {
+          "id": 2,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3500000,
+          "discountPrice": 3150000,
+          "discountRate": 10,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        },
+        {
+          "id": 7,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3500000,
+          "discountPrice": 3150000,
+          "discountRate": 10,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        },
+        {
+          "id": 8,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3500000,
+          "discountPrice": 3150000,
+          "discountRate": 10,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        },
+        {
+          "id": 9,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3500000,
+          "discountPrice": 3150000,
+          "discountRate": 10,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "GAMING ZONE",
+      "description": "버벅이지 않는 부드러움",
+      "highlight": "8% 이상",
+      "categoryInKorean": "사무용 PC",
+
+      "images": [
+        "/images/bannerExample/bannerExample2.svg",
+        "/images/bannerExample/bannerExample1.svg",
+        "/images/bannerExample/bannerExample3.svg"
+      ],
+      "products": [
+        {
+          "id": 3,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3122000,
+          "discountPrice": 2870000,
+          "discountRate": 8,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        },
+        {
+          "id": 4,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3500000,
+          "discountPrice": 3150000,
+          "discountRate": 10,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "WORK STATION ZONE",
+      "description": "강력한 성능",
+      "highlight": "12% 이상",
+      "categoryInKorean": "워크스테이션 PC",
+
+      "images": [
+        "/images/bannerExample/bannerExample3.svg",
+        "/images/bannerExample/bannerExample2.svg",
+        "/images/bannerExample/bannerExample1.svg"
+      ],
+      "products": [
+        {
+          "id": 5,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3122000,
+          "discountPrice": 2870000,
+          "discountRate": 8,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        },
+        {
+          "id": 6,
+          "name": "신학기 게이밍 PC \n(7800X3D/RTX4080)",
+          "price": 3500000,
+          "discountPrice": 3150000,
+          "discountRate": 10,
+          "manufacturer": "TRAVEL PC",
+          "image": "https://img.danawa.com/prod_img/500000/099/861/img/32861099_1.jpg?shrink=330:*&_v=20241206140623"
+        }
+      ]
+    }
+  ]
+}

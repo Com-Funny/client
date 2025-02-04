@@ -12,6 +12,7 @@
   --disabled: #a6a6a6;
   --lightgray: #ededed;
   --warning: #ec3f00;
+  --board: #f5f5f5;
   --light: #ffffff;
   --gradient: linear-gradient(
     180deg,
@@ -33,6 +34,7 @@
     --disabled: #d9d9d9;
     --lightgray: #ededed;
     --warning: #ec3f00;
+    --board: #2a2a2a;
     --light: #ffffff;
     --gradient: linear-gradient(
       180deg,
