@@ -1,7 +1,7 @@
 import { instanceToPlain, plainToInstance } from "class-transformer";
 import ApiUrlConfig from "config/apiUrl.config";
 import { action, makeObservable, observable, runInAction } from "mobx";
-import { ProductDto } from "src/dto/product/product.dto";
+import { ProductDetailDto } from "src/dto/product/productDetail.dto";
 import DefaultViewModel, {
   IDefaultProps,
 } from "src/viewModels/default.viewModel";
@@ -10,8 +10,8 @@ import ProductModel from "src/models/product/product.model";
 import { updateModelProps } from "config/type";
 
 export default class ProductViewModel extends DefaultViewModel {
-  public detail: ProductDto = new ProductDto();
-  public list: ProductDto[] = [];
+  public detail: ProductDetailDto = new ProductDetailDto();
+  public list: ProductDetailDto[] = [];
   public model: ProductModel = new ProductModel();
 
   constructor(props: IDefaultProps) {
@@ -39,7 +39,7 @@ export default class ProductViewModel extends DefaultViewModel {
 
   public getDetail = async (id: number) => {
     // TODO : Remove this mock data
-    const mockData = plainToInstance(ProductDto, mock);
+    const mockData = plainToInstance(ProductDetailDto, mock);
 
     runInAction(() => {
       this.detail = mockData;

@@ -1,4 +1,3 @@
-import React from "react";
 import CategoryBanner from "components/banner/categoryBanner";
 import ProductList from "./ProductList";
 import styled from "styled-components";
@@ -52,7 +51,7 @@ const SectionHeader = styled.div`
   margin-bottom: 20px;
 `;
 
-const CategoryTitle = styled.div`
+const CategoryTitle = styled.h3`
   font-size: 20px;
   min-width: 100px;
 `;

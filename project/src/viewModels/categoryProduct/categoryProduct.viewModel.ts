@@ -1,6 +1,6 @@
-import { makeObservable, observable } from "mobx";
+import { action, makeObservable, observable, runInAction } from "mobx";
 import { plainToInstance } from "class-transformer";
-import { CategoryDto } from "src/dto/category/category.dto";
+import CategoryDto from "src/dto/category/category.dto";
 import categoryData from "src/mock/categoryProducts.json";
 import DefaultViewModel, { IDefaultProps } from "../default.viewModel";
 
@@ -11,11 +11,18 @@ export default class CategoryViewModel extends DefaultViewModel {
     super(props);
     makeObservable(this, {
       categories: observable,
+
+      initCategories: action,
     });
     this.initCategories();
   }
+
   public initCategories() {
-    this.categories = plainToInstance(CategoryDto, categoryData.categories);
+    runInAction(() => {
+      this.categories = categoryData.categories.map((category) =>
+        plainToInstance(CategoryDto, category)
+      );
+    });
   }
 
   public getProductById(productId: number) {
@@ -25,6 +32,7 @@ export default class CategoryViewModel extends DefaultViewModel {
         return product;
       }
     }
+
     return undefined;
   }
 }

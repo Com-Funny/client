@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <HeaderContainer>
       <div>
-        <LogoBox>
+        <LogoBox href="/">
           <div />
           <p>트래블피씨</p>
         </LogoBox>
@@ -47,11 +47,12 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const LogoBox = styled.div`
+const LogoBox = styled(Link)`
   display: flex;
   gap: 12px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   & > div {
     width: 48px;

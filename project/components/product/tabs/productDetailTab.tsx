@@ -104,6 +104,11 @@ const ContentsContainer = styled.div`
       font-weight: 500;
       border-radius: 8px;
       cursor: pointer;
+      transition: opacity 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 `;
