@@ -179,7 +179,7 @@ const TextOverlay = styled.div`
   }
 
   span {
-    font-size: 1.25rem;
+    font-size: 24px;
     color: var(--warning);
     font-weight: bold;
   }

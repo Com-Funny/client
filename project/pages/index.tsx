@@ -1,37 +1,53 @@
+import { observer } from "mobx-react";
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
+import CategoryViewModel from "src/viewModels/categoryProduct/categoryProduct.viewModel";
+import IndicatorViewModel from "src/viewModels/indicator/indicator.viewModel";
+import CategorySection from "components/category/CategorySection";
 import styled from "styled-components";
-import CategoryBanner from "components/banner/categoryBanner";
 
-export default function Home() {
-  const banners = [
-    {
-      images: [
-        "/images/bannerExample/bannerExample1.svg",
-        "/images/bannerExample/bannerExample2.svg",
-        "/images/bannerExample/bannerExample3.svg",
-      ],
-      category: "BUSINESS ZONE",
-      description: "오래 사용할 수 있는 신뢰성",
-      highlight: "12%",
-    },
-  ];
+function Home() {
+  const router = useRouter();
+  const indicatorViewModel = new IndicatorViewModel();
+  const categoryViewModelRef = useRef(
+    new CategoryViewModel({ router, indicatorViewModel })
+  );
+  const categoryViewModel = categoryViewModelRef.current;
+
+  useEffect(() => {
+    if (categoryViewModel.categories.length === 0) {
+      categoryViewModel.initCategories();
+    }
+  }, [categoryViewModel]);
+
+  const handleProductClick = (productId: number) => {
+    router.push(`/product/${productId}`);
+  };
 
   return (
     <Container>
-      {banners.map((banner, index) => (
-        <CategoryBanner
-          key={index}
-          images={banner.images}
-          category={banner.category}
-          description={banner.description}
-          highlight={banner.highlight}
-        />
-      ))}
+      <CategoryWrapper>
+        {categoryViewModel.categories.map((category, index) => (
+          <CategorySection
+            key={index}
+            category={category}
+            onProductClick={handleProductClick}
+          />
+        ))}
+      </CategoryWrapper>
     </Container>
   );
 }
+
+export default observer(Home);
+
 const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 185px);
+  padding: 240px;
+`;
+
+const CategoryWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 `;
