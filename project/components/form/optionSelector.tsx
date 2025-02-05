@@ -1,16 +1,16 @@
-import { MouseEvent, useMemo, useState } from "react";
+import { MouseEvent, ReactElement, useMemo, useState } from "react";
 import { PartsDto } from "src/dto/product/parts.dto";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { PartsType } from "config/constants";
 import { updateModelProps } from "config/type";
+import Swal from "sweetalert2";
 
 interface SelectorProps {
   options: PartsDto[];
   selected: PartsDto[];
   onClick: ({ target, value }: updateModelProps) => void;
-  productPrice: number;
   placeholder?: string;
   disabled?: boolean;
 }
@@ -19,11 +19,14 @@ export default function OptionSelector({
   options,
   selected,
   onClick,
-  productPrice,
   placeholder,
   disabled,
-}: SelectorProps) {
+}: SelectorProps): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const getSamePartsType = (type: number) => {
+    return options.find((option) => option.partsType === type);
+  };
 
   const onClickSelectorBox = () => {
     if (getOptionList.length > 0) setIsOpen(!isOpen);
@@ -32,64 +35,58 @@ export default function OptionSelector({
   const onClickItem = (event: MouseEvent<HTMLLIElement>) => {
     const { id } = event.currentTarget.dataset;
     const target = options.find((option) => option.id === +id);
-    let newList = [];
-    if (target) {
-      newList = [...selected, target];
-    } else if (+id === 0) {
-      newList = [
-        ...selected,
-        {
-          id: 0,
-          name: "기본상품",
-          price: productPrice,
-          image: "",
-          partsType: 0,
-          isOption: false,
-          count: 1,
-        },
-      ];
+    const mainParts = getSamePartsType(target.partsType);
+    const selectItemPrice = target.price - mainParts.price;
+
+    if (selectItemPrice < 0) {
+      Swal.fire({
+        title: "다운그레이드",
+        text: `선택 한 부품은 본 상품의 ${PartsType.getPartsName(
+          mainParts.partsType
+        )} 보다 낮은 등급입니다.\n추가하시겠습니까?\n(차액만큼 할인이 적용됩니다.)`,
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "추가",
+        cancelButtonText: "취소",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          onClick({
+            target: "options",
+            value: [...selected, { ...target, price: selectItemPrice }],
+          });
+          setIsOpen(false);
+        }
+      });
+    } else {
+      onClick({
+        target: "options",
+        value: [...selected, { ...target, price: selectItemPrice }],
+      });
+      setIsOpen(false);
     }
-    onClick({ target: "options", value: newList });
-    setIsOpen(false);
   };
 
   const getOptionList = useMemo(() => {
-    const defaultOption = {
-      id: 0,
-      name: "기본상품",
-      price: productPrice,
-      image: "",
-      partsType: 0,
-      isOption: false,
-      count: 1,
-    };
-
     const filtedOptions = options.filter(
       (option) =>
         option.isOption &&
         !selected.some((selected) => selected.id === option.id)
     );
 
-    const setChangePartOption = filtedOptions.map((option) => {
-      const sameParts = options.find(
-        (parts) => parts.partsType === option.partsType
-      );
+    const setChangePartOption = filtedOptions.map((option: PartsDto) => {
+      const mainParts = getSamePartsType(option.partsType);
 
-      if (sameParts) {
+      if (mainParts) {
         return {
           ...option,
-          price: option.price - sameParts.price,
+          price: option.price - mainParts.price,
         };
       }
 
       return option;
     });
 
-    if (selected.find((selected) => selected.id === 0)) {
-      return setChangePartOption;
-    } else {
-      return [defaultOption, ...setChangePartOption];
-    }
+    return setChangePartOption;
   }, [options, selected]);
 
   return (
@@ -112,7 +109,7 @@ export default function OptionSelector({
               {PartsType.getPartsName(option.partsType)} - {option.name}
             </p>
             <p className="truncate shrink-0">
-              +{option.price.toLocaleString() + "원"}
+              {option.price.toLocaleString() + "원"}
             </p>
           </li>
         ))}
@@ -182,9 +179,11 @@ const OptionList = styled.ul`
   font-size: 14px;
   font-weight: 400;
   transition: all 0.3s ease-in-out;
+  pointer-events: none;
 
   &.active {
     opacity: 1;
+    pointer-events: auto;
   }
 
   & > li {

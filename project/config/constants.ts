@@ -52,3 +52,11 @@ export const PartsType = {
   },
 } as const;
 export type PartsType = (typeof PartsType)[keyof typeof PartsType];
+
+export const MenuTabType = {
+  1: { id: 1, label: "상품 상세정보" },
+  2: { id: 2, label: "상품문의" },
+  3: { id: 3, label: "상품리뷰" },
+  4: { id: 4, label: "배송/반품/환불" },
+} as const;
+export type MenuTabType = (typeof MenuTabType)[keyof typeof MenuTabType];

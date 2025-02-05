@@ -45,10 +45,20 @@ export default class ProductViewModel extends DefaultViewModel {
       this.detail = mockData;
       this.model = plainToInstance(ProductModel, {
         id: mockData.id,
-        options: [],
+        options: [
+          {
+            id: 0,
+            name: "기본상품",
+            price: mockData.discountedPrice,
+            image: "",
+            partsType: 0,
+            isOption: false,
+            count: 1,
+          },
+        ],
         ship: 0,
         count: 1,
-        price: mockData.discountPrice,
+        price: mockData.discountedPrice,
       });
     });
 

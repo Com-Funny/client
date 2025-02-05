@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 import styled from "styled-components";
 
 interface PageContainerProps {
-  children: ReactNode;
+  children: ReactElement | ReactElement[];
 }
 
 export default function PageContainer({ children }: PageContainerProps) {
@@ -12,7 +12,7 @@ export default function PageContainer({ children }: PageContainerProps) {
 const Container = styled.div`
   width: 100%;
   max-width: 1440px;
-  min-height: 100vh;
+  min-height: calc(100vh - 65px);
   display: flex;
   flex-direction: column;
   align-items: center;

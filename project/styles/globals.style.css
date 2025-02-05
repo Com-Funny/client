@@ -11,6 +11,7 @@
   --logo: url("/images/logo/primary-background.png");
   --disabled: #a6a6a6;
   --lightgray: #ededed;
+  --gray: #666;
   --warning: #ec3f00;
   --light: #ffffff;
   --gradient: linear-gradient(
@@ -32,6 +33,7 @@
     --logo: url("/images/logo/dark-background.png");
     --disabled: #d9d9d9;
     --lightgray: #ededed;
+    --gray: #666;
     --warning: #ec3f00;
     --light: #ffffff;
     --gradient: linear-gradient(
@@ -49,7 +51,6 @@ body {
   background: var(--background);
   width: 100%;
   height: 100%;
-  padding-bottom: 120px;
 }
 
 #_next {
@@ -80,4 +81,9 @@ main {
 .has_separator::after {
   content: "|";
   margin-left: 8px;
+}
+
+.swal2-html-container {
+  word-break: keep-all;
+  white-space: pre-wrap;
 }

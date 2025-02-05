@@ -12,7 +12,7 @@ interface IProps {
   id: string | string[];
 }
 
-function ProductTopInformation({ productViewModel, id }: IProps) {
+function ProductHeader({ productViewModel, id }: IProps) {
   const { detail, model } = productViewModel;
 
   useEffect(() => {
@@ -22,8 +22,8 @@ function ProductTopInformation({ productViewModel, id }: IProps) {
   }, [id]);
 
   const getTotalPrice = useMemo(() => {
-    if (detail.partsList.filter((part) => part.isOption).length === 0) {
-      return detail.discountPrice;
+    if (detail.parts.filter((part) => part.isOption).length === 0) {
+      return detail.discountedPrice;
     }
 
     return model.options.reduce((acc, cur) => acc + cur.count * cur.price, 0);
@@ -31,7 +31,7 @@ function ProductTopInformation({ productViewModel, id }: IProps) {
 
   return (
     <Container>
-      <ProductImageSlide list={detail.images} />
+      <ProductImageSlide list={detail.productImageUrls} />
       <div className="product_information">
         <h1>{detail.name}</h1>
         <ul>
@@ -39,8 +39,8 @@ function ProductTopInformation({ productViewModel, id }: IProps) {
             <p>판매가</p>
             <div>
               <p className="highlight">{detail.discountRate}%</p>
-              <p className="disabled">{detail.price}</p>
-              <p>{detail.discountPrice.toLocaleString()}원</p>
+              <p className="disabled">{detail.basePrice}</p>
+              <p>{detail.discountedPrice.toLocaleString()}원</p>
             </div>
           </li>
           <li>
@@ -52,51 +52,54 @@ function ProductTopInformation({ productViewModel, id }: IProps) {
           <li>
             <p>배송정보</p>
             <div>
-              {detail.shippingInfo.map((ship: ShippingDto, index: number) => {
-                const isLast = index === detail.shippingInfo.length - 1;
-                return (
-                  <p
-                    className={!isLast ? "has_separator" : ""}
-                    key={`ship_list_${index}`}
-                  >
-                    {ship.name}
-                  </p>
-                );
-              })}
+              {detail.shippingMethods.map(
+                (ship: ShippingDto, index: number) => {
+                  const isLast = index === detail.shippingMethods.length - 1;
+                  return (
+                    <p
+                      className={!isLast ? "has_separator" : ""}
+                      key={`ship_list_${index}`}
+                    >
+                      {ship.name}
+                    </p>
+                  );
+                }
+              )}
             </div>
           </li>
           <li>
             <p>배송비</p>
             <div>
-              {detail.shippingInfo.map((ship: ShippingDto, index: number) => {
-                const isLast = index === detail.shippingInfo.length - 1;
+              {detail.shippingMethods.map(
+                (ship: ShippingDto, index: number) => {
+                  const isLast = index === detail.shippingMethods.length - 1;
 
-                return (
-                  <p
-                    className={!isLast ? "has_separator" : ""}
-                    key={`ship_cost_${index}`}
-                  >
-                    {ship.name}(
-                    {ship.isFree
-                      ? "무료배송"
-                      : ship.cost === 0
-                      ? "착불"
-                      : ship.cost.toLocaleString()}
-                    )
-                  </p>
-                );
-              })}
+                  return (
+                    <p
+                      className={!isLast ? "has_separator" : ""}
+                      key={`ship_cost_${index}`}
+                    >
+                      {ship.name}(
+                      {ship.isFree
+                        ? "무료배송"
+                        : ship.price === 0
+                        ? "착불"
+                        : ship.price.toLocaleString()}
+                      )
+                    </p>
+                  );
+                }
+              )}
             </div>
           </li>
-          {detail.partsList.filter((part) => part.isOption).length > 0 && (
+          {detail.parts.filter((part) => part.isOption).length > 0 && (
             <li>
               <p>옵션선택</p>
               <div>
                 <OptionSelector
-                  options={detail.partsList}
+                  options={detail.parts}
                   selected={model.options}
                   onClick={productViewModel.updateModel}
-                  productPrice={detail.discountPrice}
                   placeholder={"옵션 선택하기"}
                   disabled={false}
                 />
@@ -104,7 +107,7 @@ function ProductTopInformation({ productViewModel, id }: IProps) {
             </li>
           )}
         </ul>
-        <div className="selected_options">
+        <div>
           <SelectedOptions
             productName={detail.name}
             options={model.options}
@@ -125,32 +128,31 @@ function ProductTopInformation({ productViewModel, id }: IProps) {
   );
 }
 
-export default inject("productViewModel")(observer(ProductTopInformation));
+export default inject("productViewModel")(observer(ProductHeader));
 
 const Container = styled.div`
   width: 100%;
   padding: 24px 16px;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
-  gap: 16px;
 
   & > div {
     height: 100%;
 
     &.product_information {
       width: 100%;
-      height: 480px;
       display: flex;
       flex-direction: column;
       align-items: end;
       gap: 8px;
+      overflow: hidden;
 
       & > h1 {
         font-size: 32px;
-        font-weight: 500;
         line-height: 36px;
+        font-weight: 500;
         text-align: end;
       }
 

@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import styled from "styled-components";
 
 interface CategoryBannerProps {
@@ -6,12 +7,12 @@ interface CategoryBannerProps {
   description: string;
   highlight: string;
 }
-const CategoryBanner: React.FC<CategoryBannerProps> = ({
+export default function CategoryBanner({
   images,
   category,
   description,
   highlight,
-}) => {
+}: CategoryBannerProps): ReactElement {
   return (
     <BannerWrapper>
       <BackgroundLayer>
@@ -59,8 +60,7 @@ const CategoryBanner: React.FC<CategoryBannerProps> = ({
       </ContentWrapper>
     </BannerWrapper>
   );
-};
-export default CategoryBanner;
+}
 
 const BannerWrapper = styled.div`
   display: flex;

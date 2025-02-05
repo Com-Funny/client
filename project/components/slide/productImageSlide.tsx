@@ -4,7 +4,7 @@ import "swiper/css";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { MouseEvent, ReactNode, useRef, useState } from "react";
+import { MouseEvent, ReactElement, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Swiper as SwiperType } from "swiper";
@@ -13,7 +13,7 @@ interface IProps {
   list: string[];
 }
 
-export default function ProductImageSlide({ list }: IProps): ReactNode {
+export default function ProductImageSlide({ list }: IProps): ReactElement {
   const [visibleImage, setVisibleImage] = useState<number>(0);
   const swiperRef = useRef<SwiperRef>(null);
 
@@ -76,8 +76,9 @@ export default function ProductImageSlide({ list }: IProps): ReactNode {
 
 const ImageContainer = styled.div`
   flex-shrink: 0;
+  width: fit-content;
   display: flex;
-  gap: 8px;
+  gap: 4px;
 
   & > div.navigation {
     flex-shrink: 0;
@@ -88,7 +89,7 @@ const ImageContainer = styled.div`
     & > button {
       flex-shrink: 0;
       position: relative;
-      width: 80px;
+      width: 89.6px;
       height: 89.6px;
       overflow: hidden;
       border-radius: 8px;
@@ -129,10 +130,13 @@ const ImageContainer = styled.div`
 
 const Container = styled(Swiper)`
   flex-shrink: 0;
-  width: 480px;
-  height: 480px;
+  width: calc(100% - 96px);
+  height: 100%;
+  max-width: 480px;
+  max-height: 480px;
   border: 1px solid var(--border);
   border-radius: 16px;
+  margin: 0;
 
   & > div.bottom_background {
     z-index: 9;

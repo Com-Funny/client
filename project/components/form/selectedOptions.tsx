@@ -1,6 +1,7 @@
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { updateModelProps } from "config/type";
+import { useRef } from "react";
 import { PartsDto } from "src/dto/product/parts.dto";
 import styled from "styled-components";
 
@@ -15,6 +16,8 @@ export default function SelectedOptions({
   options,
   onClick,
 }: SelectedOptionProps) {
+  const listRef = useRef<HTMLUListElement>(null);
+
   const onClickCounter = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { type, id } = event.currentTarget.dataset;
     const target = options.find((option) => option.id === +id);
@@ -43,11 +46,20 @@ export default function SelectedOptions({
     }
   };
 
+  const onScrollList = (event: React.WheelEvent<HTMLUListElement>) => {
+    if (!listRef.current) return;
+
+    listRef.current.scrollBy({
+      left: event.deltaY,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <SelectedOptionList>
+    <SelectedOptionList onWheel={onScrollList} ref={listRef}>
       {options.map((option: PartsDto) => (
         <li key={`selected_option_${option.id}`}>
-          <p className="truncate">
+          <p className="truncate text-nowrap">
             {option.id === 0 ? productName : option.name}
           </p>
           <div>
@@ -56,10 +68,11 @@ export default function SelectedOptions({
                 onClick={onClickCounter}
                 data-type="MINUS"
                 data-id={option.id}
+                disabled={option.id === 0 && option.count === 1}
               >
                 <FontAwesomeIcon icon={faMinus} />
               </button>
-              <p>{option.count}</p>
+              <p className="text-nowrap">{option.count}</p>
               <button
                 onClick={onClickCounter}
                 data-type="PLUS"
@@ -68,7 +81,9 @@ export default function SelectedOptions({
                 <FontAwesomeIcon icon={faPlus} />
               </button>
             </Counter>
-            <p>{(option.count * option.price).toLocaleString()}원</p>
+            <p className="text-nowrap">
+              {(option.count * option.price).toLocaleString()}원
+            </p>
           </div>
         </li>
       ))}
@@ -77,15 +92,27 @@ export default function SelectedOptions({
 }
 
 const SelectedOptionList = styled.ul`
-  display: flex;
+  width: min-content;
+
+  max-height: 220px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: end;
+  overflow-y: auto;
   gap: 8px;
+  margin: 0;
+
+  &:has(> :only-child) {
+    gap: 0;
+  }
 
   & > li {
-    width: 100%;
-    max-width: 288px;
+    flex-shrink: 0;
+    width: 260px;
     border-radius: 16px;
     padding: 12px 16px;
     display: flex;
+    flex: 0 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -125,12 +152,18 @@ const Counter = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:disabled {
+      background: var(--border);
+      color: var(--light);
+    }
   }
 
   & > p {
     border: 1px solid var(--border);
     width: 48px;
     height: 24px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;

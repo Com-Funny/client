@@ -1,11 +1,14 @@
 import PageContainer from "components/layout/pageContainer";
-import ProductTopInformation from "components/product/productTopInformation";
+import ProductBodyContainer from "components/product/productBodyContainer";
+import ProductHeader from "components/product/productHeader";
 import { PageProps } from "config/type";
+import { ReactElement } from "react";
 
-export default function ProductDetail({ router }: PageProps) {
+export default function ProductDetail({ router }: PageProps): ReactElement {
   return (
     <PageContainer>
-      <ProductTopInformation id={router.query.id} />
+      <ProductHeader id={router.query.id} />
+      <ProductBodyContainer />
     </PageContainer>
   );
 }
