@@ -12,7 +12,6 @@ export default function PageContainer({ children }: PageContainerProps) {
 const Container = styled.div`
   width: 100%;
   max-width: 1440px;
-  min-height: calc(100vh - 65px);
   display: flex;
   flex-direction: column;
   align-items: center;

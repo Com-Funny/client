@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "2025년 혜택 알아보기!",
+    "description": "조립 피씨 전문 트래블 피씨",
+    "notice": "다음 혜택은 특정 기간 조건에 따라 적용됩니다!",
+    "gradient": "linear-gradient(90deg,#FFD700 0%,#FF8C00 100%)",
+    "contents": [
+      {
+        "id": 1,
+        "title": "커피 기프티콘 증정",
+        "description": "포토 리뷰 작성 시",
+        "imageUrl": "https://img.danawa.com/prod_img/500000/934/627/img/19627934_1.jpg?shrink=160:160"
+      },
+      {
+        "id": 2,
+        "title": "신학기 특별 세일",
+        "description": "새로운 신학기 시즌을 응원해요",
+        "imageUrl": "https://img.danawa.com/prod_img/500000/934/627/img/19627934_1.jpg?shrink=160:160"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "2025년 혜택 알아보기!",
+    "description": "조립 피씨 전문 트래블 피씨2",
+    "notice": "다음 혜택은 특정 기간 조건에 따라 적용됩니다!2",
+    "gradient": "linear-gradient(90deg,#5271FF 0%,#8CA1FF 100%)",
+    "contents": [
+      {
+        "id": 1,
+        "title": "커피 기프티콘 증정",
+        "description": "포토 리뷰 작성 시",
+        "imageUrl": "https://img.danawa.com/prod_img/500000/934/627/img/19627934_1.jpg?shrink=160:160"
+      }
+    ]
+  }
+]
