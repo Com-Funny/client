@@ -29,17 +29,19 @@ function MainBanner({
 
   return (
     <BannerWrapper>
+      {/* 1440 */}
       <SwiperContainer
         ref={swiperReference}
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{ delay: 3000, disableOnInteraction: true }}
-        spaceBetween={50}
+        spaceBetween={0}
         slidesPerView={1}
         loop={bannerViewModel?.list.length > 1}
         navigation
         pagination={{ clickable: true }}
       >
         {bannerViewModel?.list.map((bannerPage: BannerDto) => (
+          // 1440 - 화살표width - 16
           <SwiperSlide key={bannerPage.id}>
             <BannerSlide bannerPage={bannerPage} />
           </SwiperSlide>

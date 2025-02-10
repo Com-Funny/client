@@ -40,7 +40,6 @@ const SingleContentWrapper = styled.div<{ $size: number }>`
 `;
 
 const ContentImage = styled.img`
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   width: 100px;
   height: auto;
 `;

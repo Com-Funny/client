@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 import SingleContentDisplay from "./singleContentDisplay";
 import MultipleContentDisplayItem from "./multipleContentDisplayItem";
@@ -8,9 +8,7 @@ interface BannerSlideProperties {
   bannerPage: BannerDto;
 }
 
-function BannerSlide({
-  bannerPage,
-}: BannerSlideProperties): React.ReactElement {
+function BannerSlide({ bannerPage }: BannerSlideProperties): ReactElement {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -21,13 +19,14 @@ function BannerSlide({
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <SlideBackground $gradient={bannerPage.gradient}>
       <SlideContent>
         <TextSection>
           <Description>{bannerPage.description}</Description>
           <Title>{bannerPage.title}</Title>
-          <Notice>{`※${bannerPage.notice}`}</Notice>
+          <Notice>{bannerPage.notice}</Notice>
         </TextSection>
         <ImageSection>
           {bannerPage.contents.length === 1 ? (
@@ -61,7 +60,6 @@ const SlideBackground = styled.div<{ $gradient: string }>`
   justify-content: center;
   padding: 20px;
   background: ${({ $gradient }) => $gradient};
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 `;
@@ -89,6 +87,9 @@ const Title = styled.h2`
 const Notice = styled.div`
   color: var(--background);
   font-size: 16px;
+
+  white-space: pre-wrap;
+  word-break: keep-all;
 `;
 
 const Description = styled.div`
@@ -129,6 +130,8 @@ const WaveBackground = styled.div<{ $scrollPosition: number }>`
     height: 100%;
     background: url("/images/bannerExample/bannerWave.svg") repeat-x;
     background-size: cover;
+    transition: transform 0.8s ease-in-out;
+
     transform: translateX(${(props) => -(props.$scrollPosition * 0.9)}px);
     will-change: transform;
   }

@@ -13,6 +13,7 @@ export default class BannerViewModel extends DefaultViewModel {
     super(props);
     makeObservable(this, {
       list: observable,
+
       getBanner: action,
     });
   }
