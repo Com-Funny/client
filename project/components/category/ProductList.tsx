@@ -1,28 +1,45 @@
-import React from "react";
+"use client";
+
+import React, { ReactElement } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
+import { ProductDto } from "src/dto/product/product.dto";
 
-export default function ProductList({ products, onProductClick }) {
+interface ProductListProps {
+  products: ProductDto[];
+  onProductClick: (productId: number) => void;
+}
+
+export default function ProductList({
+  products,
+  onProductClick,
+}: ProductListProps): ReactElement {
   return (
     <ListWrapper>
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onClick={() => onProductClick(product.id)}
-        />
-      ))}
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={20}
+        slidesPerView="auto"
+      >
+        {products.map((product) => (
+          <SwiperSlide key={product.id} style={{ width: "auto" }}>
+            <ProductCard
+              product={product}
+              onClick={() => onProductClick(product.id)}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </ListWrapper>
   );
 }
 
 const ListWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
+  width: 100%;
   padding-bottom: 10px;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;

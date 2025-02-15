@@ -1,3 +1,4 @@
+"use client";
 import CategoryBanner from "components/banner/categoryBanner";
 import ProductList from "./ProductList";
 import styled from "styled-components";

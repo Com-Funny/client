@@ -73,7 +73,7 @@ const PriceDetailInfo = styled.div`
 const OriginalPrice = styled.div`
   text-decoration: line-through;
   color: #999;
-  font-color: var(--disable);
+  color: var(--disable);
   font-size: 10px;
 `;
 
