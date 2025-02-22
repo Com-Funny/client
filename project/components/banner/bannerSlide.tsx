@@ -76,7 +76,7 @@ const TextSection = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 54px;
+  font-size: 3rem;
   margin-bottom: 10px;
   font-weight: 900;
   color: var(--text);
@@ -86,14 +86,14 @@ const Title = styled.h2`
 
 const Notice = styled.div`
   color: var(--background);
-  font-size: 16px;
+  font-size: 1rem;
 
   white-space: pre-wrap;
   word-break: keep-all;
 `;
 
 const Description = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--text);
   text-shadow: -1px -1px 0 var(--light), 1px -1px 0 var(--light),
     -1px 1px 0 var(--light), 1px 1px 0 var(--light),
@@ -126,7 +126,7 @@ const WaveBackground = styled.div<{ $scrollPosition: number }>`
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 3000px;
+    width: 200%;
     height: 100%;
     background: url("/images/bannerExample/bannerWave.svg") repeat-x;
     background-size: cover;

@@ -15,6 +15,7 @@
   --warning: #ec3f00;
   --board: #f5f5f5;
   --light: #ffffff;
+  --text: #171717;
   --gradient: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
@@ -38,6 +39,7 @@
     --warning: #ec3f00;
     --board: #2a2a2a;
     --light: #ffffff;
+    --text: #ededed;
     --gradient: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,

@@ -29,7 +29,6 @@ function MainBanner({
 
   return (
     <BannerWrapper>
-      {/* 1440 */}
       <SwiperContainer
         ref={swiperReference}
         modules={[Autoplay, Navigation, Pagination]}
@@ -41,7 +40,6 @@ function MainBanner({
         pagination={{ clickable: true }}
       >
         {bannerViewModel?.list.map((bannerPage: BannerDto) => (
-          // 1440 - 화살표width - 16
           <SwiperSlide key={bannerPage.id}>
             <BannerSlide bannerPage={bannerPage} />
           </SwiperSlide>

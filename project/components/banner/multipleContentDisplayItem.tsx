@@ -21,7 +21,11 @@ export default function MultipleContentDisplayItem({
       <Title>{content.description}</Title>
       <Description>{content.title}</Description>
       <ContentImage src={content.imageUrl} alt={content.title} />
-      <OrbitAnimation gradient={gradient} size={wrapperSize} />
+      <OrbitAnimation
+        gradient={gradient}
+        size={wrapperSize}
+        variant={position}
+      />
     </ImageWrapper>
   );
 }
@@ -46,20 +50,23 @@ const ContentImage = styled.img`
   width: 100px;
   height: auto;
 `;
+
 const Benefit = styled.span`
   color: var(--primary);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff,
     2px 2px 0 #ffffff, 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
+
 const Title = styled.span`
   color: var(--dark);
-  font-size: 16px;
+  font-size: 1rem;
 `;
+
 const Description = styled.span`
   color: var(--text);
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
   display: flex;
   justify-content: center;

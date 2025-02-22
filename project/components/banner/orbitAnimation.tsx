@@ -4,11 +4,13 @@ import styled, { keyframes } from "styled-components";
 interface OrbitAnimationProperties {
   gradient: string;
   size: number;
+  variant?: "top" | "bottom";
 }
 
 function OrbitAnimation({
   gradient,
   size,
+  variant = "top",
 }: OrbitAnimationProperties): React.ReactElement {
   function extractColorsFromGradient(gradient: string): string[] {
     const colorRegex = /#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})/g;
@@ -17,14 +19,21 @@ function OrbitAnimation({
   }
 
   const colors = extractColorsFromGradient(gradient);
-  console.log(size);
   return (
     <OrbitContainer $size={size}>
       <RotatingWrapperFast>
-        <SmallCircleOne $backgroundColor={colors[0]} $shadowColor={colors[1]} />
+        <SmallCircleOne
+          $backgroundColor={colors[0]}
+          $shadowColor={colors[1]}
+          $variant={variant}
+        />
       </RotatingWrapperFast>
       <RotatingWrapperSlow>
-        <SmallCircleTwo $backgroundColor={colors[0]} $shadowColor={colors[1]} />
+        <SmallCircleTwo
+          $backgroundColor={colors[0]}
+          $shadowColor={colors[1]}
+          $variant={variant}
+        />
       </RotatingWrapperSlow>
     </OrbitContainer>
   );
@@ -42,9 +51,9 @@ const OrbitContainer = styled.div<{ $size: number }>`
   transform-origin: center center;
 `;
 
-const rotateAnimation = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+const rotateAnimationRight = keyframes`
+from { transform: rotate(360deg) translate(25px) rotate(-360deg); }
+to { transform: rotate(0deg) translate(25px) rotate(0deg); }
 `;
 
 const rotateAnimationSmall = keyframes`
@@ -56,25 +65,20 @@ const RotatingWrapperFast = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  transform-origin: center center;
-  animation: ${rotateAnimation} 30s linear infinite;
+  animation: ${rotateAnimationRight} 30s linear infinite;
 `;
 
 const RotatingWrapperSlow = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  transform-origin: center center;
   animation: ${rotateAnimationSmall} 30s linear infinite;
 `;
 
 interface SmallCircleProperties {
   $backgroundColor: string;
   $shadowColor: string;
+  $variant: "top" | "bottom";
 }
 
 const SmallCircleOne = styled.div<SmallCircleProperties>`
@@ -84,8 +88,9 @@ const SmallCircleOne = styled.div<SmallCircleProperties>`
   border-radius: 50%;
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   box-shadow: 0 0 0 5px ${({ $shadowColor }) => $shadowColor};
-  top: 0;
-  left: 50%;
+
+  top: ${({ $variant }) => ($variant === "top" ? "20%" : "90%")};
+  left: ${({ $variant }) => ($variant === "top" ? "0%" : "15%")};
   transform: translate(-50%, -50%);
   opacity: 0.7;
 `;
@@ -97,8 +102,10 @@ const SmallCircleTwo = styled.div<SmallCircleProperties>`
   border-radius: 50%;
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   box-shadow: 0 0 0 5px ${({ $shadowColor }) => $shadowColor};
-  top: 50%;
-  left: 0;
-  transform: translate(-50%, -50%);
   opacity: 0.7;
+
+  top: ${({ $variant }) => ($variant === "top" ? "80%" : "50%")};
+  left: ${({ $variant }) => ($variant === "top" ? "80%" : "100%")};
+
+  transform: translate(-50%, -50%);
 `;
