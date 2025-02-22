@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PageContainer from "components/layout/pageContainer";
 import { NextRouter } from "next/router";
 import MainBanner from "components/banner/mainBanner";
+import PopularByPriceRange from "components/popularByPriceRange/popularByPriceRange";
 
 interface HomeProps {
   router: NextRouter;
@@ -29,6 +30,7 @@ function Home({ router, categoryViewModel }: HomeProps): ReactElement {
     <>
       <MainBanner />
       <PageContainer>
+        <PopularByPriceRange onProductClick={handleProductClick} />
         <CategoryWrapper>
           {categories.map((category, index) => (
             <CategorySection

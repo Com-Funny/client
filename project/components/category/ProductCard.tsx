@@ -20,7 +20,7 @@ export default function ProductCard({ product, onClick }) {
 }
 
 const CardWrapper = styled.div`
-  min-width: 256px;
+  max-width: 256px;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
