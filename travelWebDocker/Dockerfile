@@ -15,7 +15,7 @@ ENV NODE_ENV development
 
 # You only need to copy next.config.js if you are NOT using the default configuration
 COPY /project .
-COPY /project/next.config.ts ./
+COPY /project/next.config.js ./
 COPY --from=deps /project/node_modules ./node_modules
 
 # Next.js collects completely anonymous telemetry data about general usage.
