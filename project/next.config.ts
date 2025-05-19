@@ -1,8 +1,32 @@
-import type { NextConfig } from "next";
+const dotenv = require("dotenv");
+const { PHASE_PRODUCTION_BUILD } = require("next/dist/shared/lib/constants");
+const path = require("path");
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactStrictMode: false,
+const nextConfig = (phase: any) => {
+  const envPath = path.resolve(__dirname, `.env.${process.env.APP_ENV}`);
+  const envConfig = dotenv.config({ path: envPath }).parsed;
+
+  if (phase === PHASE_PRODUCTION_BUILD) {
+    return {
+      env: envConfig,
+      swcMinify: true,
+      reactStrictMode: false,
+      output: "export",
+      distDir: "../build",
+      compiler: {
+        styledComponents: true,
+      },
+    };
+  } else {
+    return {
+      env: envConfig,
+      reactStrictMode: false,
+      swcMinify: true,
+      compiler: {
+        styledComponents: true,
+      },
+    };
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;
