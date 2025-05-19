@@ -1,0 +1,172 @@
+{
+  "alarm": [
+    {
+      "id": 1,
+      "name": "[반품접수] 배송 된 케이스가 깨져있어요 반품해주세요.",
+      "type": "return",
+      "status": "active",
+      "timestamp": "2025-05-02T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "[교환접수] RAM불량 코드 확인",
+      "type": "exchange",
+      "status": "active",
+      "timestamp": "2025-05-02T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "[문의접수] 색상 변경 가능한가요?",
+      "type": "contact",
+      "status": "active",
+      "timestamp": "2025-05-02T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "[문의접수] 배송방법 퀵으로 받고싶습니다.",
+      "type": "contact",
+      "status": "active",
+      "timestamp": "2025-05-02T12:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "[실시간상담] 재고문의 드립니다 CPU: i7-12700K, RAM: 32GB, SSD: 1TB, GPU: RTX 4090",
+      "type": "realtime",
+      "status": "active",
+      "timestamp": "2025-05-02T12:00:00Z"
+    }
+  ],
+  "stats": [
+    {
+      "date": "Dec 24",
+      "sales": 312,
+      "contacts": 4,
+      "exchanges": 7,
+      "returns": 1
+    },
+    {
+      "date": "Jan 25",
+      "sales": 234,
+      "contacts": 14,
+      "exchanges": 5,
+      "returns": 0
+    },
+    {
+      "date": "Feb 25",
+      "sales": 543,
+      "contacts": 23,
+      "exchanges": 12,
+      "returns": 1
+    },
+    {
+      "date": "Mar 25",
+      "sales": 673,
+      "contacts": 8,
+      "exchanges": 4,
+      "returns": 2
+    },
+    {
+      "date": "Apr 25",
+      "sales": 424,
+      "contacts": 4,
+      "exchanges": 0,
+      "returns": 1
+    },
+    {
+      "date": "May 25",
+      "sales": 894,
+      "contacts": 12,
+      "exchanges": 4,
+      "returns": 2
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "상품명",
+      "sales": 42,
+      "contact": 2,
+      "review": 18,
+      "exchange": 1,
+      "return": 0,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 2,
+      "name": "상품명",
+      "sales": 12,
+      "contact": 1,
+      "review": 5,
+      "exchange": 0,
+      "return": 0,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 3,
+      "name": "상품명",
+      "sales": 32,
+      "contact": 3,
+      "review": 8,
+      "exchange": 1,
+      "return": 0,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 4,
+      "name": "상품명",
+      "sales": 22,
+      "contact": 2,
+      "review": 10,
+      "exchange": 0,
+      "return": 0,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 5,
+      "name": "상품명",
+      "sales": 52,
+      "contact": 4,
+      "review": 20,
+      "exchange": 2,
+      "return": 1,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 6,
+      "name": "상품명",
+      "sales": 62,
+      "contact": 5,
+      "review": 25,
+      "exchange": 3,
+      "return": 2,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 7,
+      "name": "상품명",
+      "sales": 72,
+      "contact": 6,
+      "review": 30,
+      "exchange": 4,
+      "return": 3,
+      "image": "https://picsum.photos/600/400"
+    },
+    {
+      "id": 8,
+      "name": "상품명",
+      "sales": 82,
+      "contact": 7,
+      "review": 35,
+      "exchange": 5,
+      "return": 4,
+      "image": "https://picsum.photos/600/400"
+    }
+  ],
+  "money": {
+    "sales": 22138000,
+    "fixed": 18237000,
+    "withdrawalReady": 0,
+    "withdrawal": 16000000,
+    "balance": 2237000
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "popular": [
+    {
+      "id": 0,
+      "name": "[RTX 5070Ti] 게임용 인기PC 최신 5070Ti 탑재",
+      "price": 3480000,
+      "discountRate": 2,
+      "discountPrice": 3410000,
+      "image": "https://test-it.co.kr/face93.png",
+      "like": 42,
+      "purchases": 23
+    },
+    {
+      "id": 1,
+      "name": "[라데온 9070XT] 가성비 최고의 게이밍 PC",
+      "price": 2130000,
+      "discountRate": 5,
+      "discountPrice": 2023500,
+      "image": "https://picsum.photos/600/400",
+      "like": 12,
+      "purchases": 10
+    },
+    {
+      "id": 2,
+      "name": "[RTX 5060Ti] 배그 최적화 인기PC 5060Ti 탑재",
+      "price": 2020000,
+      "discountRate": 3,
+      "discountPrice": 1959400,
+      "image": "https://api.prostack.uk/wp-content/uploads/2024/04/Preview-URL-1024x624.png",
+      "like": 32,
+      "purchases": 20
+    },
+    {
+      "id": 3,
+      "name": "[RTX 5080] 고사양 인기PC 5080 탑재",
+      "price": 4230000,
+      "discountRate": 10,
+      "discountPrice": 3807000,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/PM5544_with_non-PAL_signals.png/330px-PM5544_with_non-PAL_signals.png",
+      "like": 12,
+      "purchases": 10
+    },
+    {
+      "id": 4,
+      "name": "[라이젠7 8700G] 게임까지 가능한 사무용 인기PC",
+      "price": 720000,
+      "discountRate": 10,
+      "discountPrice": 648000,
+      "image": "https://test-it.co.kr/face93.png",
+      "like": 32,
+      "purchases": 20
+    },
+    {
+      "id": 5,
+      "name": "[i5-12400] 사무, 주식용 프리미엄 PC",
+      "price": 690000,
+      "discountRate": 2,
+      "discountPrice": 676200,
+      "image": "https://ko-blog.smore.im/content/images/size/w2000/2024/05/ST003.jpg",
+      "like": 32,
+      "purchases": 20
+    },
+    {
+      "id": 6,
+      "name": "[RTX 4060] 가성비 좋은 인기PC 4060 탑재",
+      "price": 1640000,
+      "discountRate": 7,
+      "discountPrice": 1525200,
+      "image": "https://api.prostack.uk/wp-content/uploads/2024/04/Preview-URL-1024x624.png",
+      "like": 12,
+      "purchases": 10
+    },
+    {
+      "id": 7,
+      "name": "[RTX 4060Ti] 고사양 인기PC 4060Ti 탑재",
+      "price": 1820000,
+      "discountRate": 3,
+      "discountPrice": 1765400,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/PM5544_with_non-PAL_signals.png/330px-PM5544_with_non-PAL_signals.png",
+      "like": 32,
+      "purchases": 20
+    }
+  ]
+}
